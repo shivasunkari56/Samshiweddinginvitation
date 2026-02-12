@@ -1,0 +1,201 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sai Samyuktha & Vamshi Krishna</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#F6F1EB;
+--primary:#7F5539;
+--accent:#C6AC8F;
+--dark:#1E1E1E;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Poppins',sans-serif;
+background:var(--bg);
+color:var(--dark);
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
+
+section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero{
+background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+url('https://images.unsplash.com/photo-1520854221256-17451cc331bf');
+background-size:cover;
+background-position:center;
+color:white;
+}
+
+.monogram{
+font-family:'Cinzel',serif;
+font-size:60px;
+letter-spacing:8px;
+animation:glow 3s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px #C6AC8F;}
+to{text-shadow:0 0 25px #ffffff;}
+}
+
+.names{
+font-family:'Cinzel',serif;
+font-size:28px;
+margin-top:15px;
+}
+
+.countdown{
+display:flex;
+gap:15px;
+margin-top:30px;
+}
+
+.box{
+background:var(--primary);
+color:white;
+padding:15px;
+border-radius:10px;
+min-width:70px;
+font-weight:bold;
+}
+
+button{
+padding:12px 25px;
+border:none;
+background:var(--primary);
+color:white;
+border-radius:25px;
+margin-top:20px;
+cursor:pointer;
+font-size:14px;
+}
+
+button:hover{
+background:var(--accent);
+color:black;
+}
+
+.music-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:var(--primary);
+color:white;
+border-radius:50%;
+width:55px;
+height:55px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_efbfa1f39a.mp3" type="audio/mp3">
+</audio>
+
+<div class="music-btn" onclick="toggleMusic()">♫</div>
+
+<!-- HERO -->
+<section class="hero">
+<div class="monogram">S & V</div>
+<div class="names">
+Sai Samyuktha <br> & <br> Vamshi Krishna
+</div>
+
+<div class="countdown">
+<div class="box" id="days">0D</div>
+<div class="box" id="hours">0H</div>
+<div class="box" id="minutes">0M</div>
+<div class="box" id="seconds">0S</div>
+</div>
+</section>
+
+<!-- WEDDING -->
+<section>
+<h2 style="font-family:Cinzel;">Wedding Ceremony</h2>
+<p style="margin-top:10px;">8 March 2026</p>
+<p>Karimnagar</p>
+<button onclick="window.open('https://maps.app.goo.gl/TUs1AmYJoai5cXpu8')">
+View Location
+</button>
+</section>
+
+<!-- RECEPTION -->
+<section style="background:#EDE0D4;">
+<h2 style="font-family:Cinzel;">Reception</h2>
+<p style="margin-top:10px;">9 March 2026 • 5:00 PM</p>
+<p>Pothana Colony, Godavarikhani</p>
+<button onclick="window.open('https://maps.app.goo.gl/PJV4nuFHHRPsmwrP6')">
+View Location
+</button>
+</section>
+
+<!-- RSVP -->
+<section>
+<h2 style="font-family:Cinzel;">RSVP</h2>
+<p>Please confirm your presence</p>
+<button onclick="window.open('https://wa.me/91XXXXXXXXXX')">
+Confirm via WhatsApp
+</button>
+</section>
+
+<script>
+
+// Countdown
+var weddingDate = new Date("March 8, 2026 09:00:00").getTime();
+
+setInterval(function(){
+var now = new Date().getTime();
+var distance = weddingDate - now;
+
+document.getElementById("days").innerHTML =
+Math.floor(distance/(1000*60*60*24)) + "D";
+
+document.getElementById("hours").innerHTML =
+Math.floor((distance%(1000*60*60*24))/(1000*60*60)) + "H";
+
+document.getElementById("minutes").innerHTML =
+Math.floor((distance%(1000*60*60))/(1000*60)) + "M";
+
+document.getElementById("seconds").innerHTML =
+Math.floor((distance%(1000*60))/1000) + "S";
+
+},1000);
+
+// Music toggle
+function toggleMusic(){
+var music=document.getElementById("music");
+if(music.paused){
+music.play();
+}else{
+music.pause();
+}
+}
+
+</script>
+
+</body>
+</html>
