@@ -8,10 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
 
 body{
-font-family:'Cinzel',serif;
+font-family:'Cinzel', serif;
 background:#3b0d0d;
 color:#f5e6cc;
 overflow-x:hidden;
@@ -19,17 +25,18 @@ overflow-x:hidden;
 
 /* GOLD SHIMMER */
 .gold{
-background:linear-gradient(45deg,#c5a047,#fff1b0,#c5a047);
+background: linear-gradient(45deg,#c5a047,#fff1b0,#c5a047);
 background-size:200% auto;
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-animation:shimmer 4s linear infinite;
+animation: shimmer 4s linear infinite;
 }
 
 @keyframes shimmer{
 to{background-position:200% center;}
 }
 
+/* SECTION */
 section{
 padding:100px 20px;
 text-align:center;
@@ -56,16 +63,16 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-text-align:center;
 }
 
+/* MONOGRAM */
 .monogram{
 border:2px solid #c5a047;
-padding:20px 40px;
+padding:20px 45px;
 border-radius:50%;
 font-size:45px;
 margin-bottom:30px;
-animation:glow 3s infinite alternate;
+animation: glow 3s infinite alternate;
 }
 
 @keyframes glow{
@@ -74,7 +81,7 @@ to{box-shadow:0 0 30px #fff1b0;}
 }
 
 .hero h1{
-font-family:'Great Vibes',cursive;
+font-family:'Great Vibes', cursive;
 font-size:60px;
 margin-bottom:20px;
 }
@@ -84,24 +91,18 @@ font-size:24px;
 letter-spacing:2px;
 }
 
-.names-main{
-font-family:'Great Vibes',cursive;
+/* NAMES */
+.groom{
+font-family:'Great Vibes', cursive;
 font-size:75px;
-margin-top:20px;
+margin:20px 0;
 }
 
-.names-sub{
-font-family:'Great Vibes',cursive;
+.bride{
+font-family:'Great Vibes', cursive;
 font-size:55px;
-margin-top:10px;
+margin:10px 0;
 opacity:0.9;
-}
-
-.big-date{
-font-size:40px;
-font-weight:bold;
-margin-top:20px;
-letter-spacing:3px;
 }
 
 .divider{
@@ -113,13 +114,12 @@ margin:30px auto;
 
 .btn{
 display:inline-block;
-padding:14px 32px;
+padding:12px 30px;
 border:1px solid #c5a047;
 color:#f5e6cc;
 text-decoration:none;
 margin-top:20px;
 transition:.4s;
-border-radius:30px;
 }
 
 .btn:hover{
@@ -128,32 +128,40 @@ color:#3b0d0d;
 box-shadow:0 0 20px #fff1b0;
 }
 
-/* RSVP BUTTONS */
-.rsvp-buttons{
-margin-top:30px;
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
+/* BIG DATE */
+.big-date{
+font-size:40px;
+margin-top:15px;
+font-weight:bold;
 }
 
+/* RSVP STYLE */
 .rsvp-btn{
-padding:15px 35px;
-border-radius:30px;
-border:2px solid #c5a047;
-background:transparent;
-color:#f5e6cc;
+padding:12px 40px;
+margin:10px;
+border:none;
 cursor:pointer;
 font-size:18px;
+border-radius:30px;
 transition:.4s;
 }
 
-.rsvp-btn:hover{
+.yes{
 background:#c5a047;
 color:#3b0d0d;
-box-shadow:0 0 20px gold;
 }
 
+.no{
+background:#ffffff20;
+color:#fff;
+border:1px solid #c5a047;
+}
+
+.rsvp-btn:hover{
+transform:scale(1.1);
+}
+
+/* FOOTER */
 footer{
 padding:40px;
 background:#2a0909;
@@ -161,12 +169,14 @@ text-align:center;
 font-size:18px;
 }
 
+/* MOBILE */
 @media(max-width:768px){
 .hero h1{font-size:38px;}
-.names-main{font-size:45px;}
-.names-sub{font-size:35px;}
+.groom{font-size:48px;}
+.bride{font-size:36px;}
 .big-date{font-size:28px;}
 }
+
 </style>
 </head>
 
@@ -185,42 +195,42 @@ font-size:18px;
 
 <section>
 <div class="divider"></div>
-<div class="names-main gold">Vamshi Krishna</div>
-<div class="names-sub gold">Sai Samyuktha</div>
-<div class="big-date gold">8th March 2026</div>
+<div class="groom gold">Vamshi Krishna</div>
+<div class="bride gold">Sai Samyuktha</div>
 </section>
 
+<!-- HALDI -->
 <section>
 <h2 class="gold">Haldi Ceremony</h2>
 <div class="divider"></div>
-<p>07/03/2026</p>
+<p class="big-date">07/03/2026</p>
 <a class="btn" href="https://maps.app.goo.gl/iYfaqjJcwjwF8wHBA?g_st=ic" target="_blank">View Location</a>
 </section>
 
+<!-- WEDDING -->
 <section>
 <h2 class="gold">Wedding Ceremony</h2>
 <div class="divider"></div>
+<p class="big-date">8th March 2026</p>
 <p>Karimnagar</p>
 <a class="btn" href="https://maps.app.goo.gl/TUs1AmYJoai5cXpu8" target="_blank">View Location</a>
 </section>
 
+<!-- RECEPTION -->
 <section>
 <h2 class="gold">Reception</h2>
 <div class="divider"></div>
-<p>9th March 2026 | 5:00 PM Evening</p>
+<p class="big-date">9th March 2026 | 5:00 PM</p>
 <p>Pothana Colony, Godavarikhani</p>
 <a class="btn" href="https://maps.app.goo.gl/PJV4nuFHHRPsmwrP6" target="_blank">View Location</a>
 </section>
 
+<!-- RSVP -->
 <section>
-<h2 class="gold">Are You Coming?</h2>
+<h2 class="gold">Are you coming?</h2>
 <div class="divider"></div>
-<p>Let us know your presence</p>
-
-<div class="rsvp-buttons">
-<button class="rsvp-btn" onclick="sendRSVP('Yes')">Yes 💛</button>
-<button class="rsvp-btn" onclick="sendRSVP('No')">No 🤍</button>
-</div>
+<button class="rsvp-btn yes">Yes 💛</button>
+<button class="rsvp-btn no">No 🤍</button>
 </section>
 
 <footer>
@@ -240,16 +250,11 @@ if(top>offset){sec.classList.add("show");}
 });
 });
 
-/* RSVP Email */
-function sendRSVP(response){
-window.location.href=
-"mailto:yourgmail@gmail.com?subject=Wedding RSVP&body=My Response: "+response;
-}
-
-/* Autoplay Fix for Mobile */
-window.addEventListener('click',function(){
-document.getElementById("bgMusic").play();
-},{once:true});
+/* Force autoplay (helps on some browsers) */
+window.addEventListener('load', function(){
+const audio=document.getElementById("bgMusic");
+audio.play().catch(()=>{});
+});
 
 </script>
 
