@@ -1,110 +1,157 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sai Samyuktha & Vamshi Krishna</title>
+<title>Sai Samyuktha & Vamshi Krishna Wedding</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-:root{
---bg:#F6F1EB;
---primary:#7F5539;
---accent:#C6AC8F;
---dark:#1E1E1E;
-}
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
 body{
-font-family:'Poppins',sans-serif;
-background:var(--bg);
-color:var(--dark);
-scroll-behavior:smooth;
-overflow-x:hidden;
+    font-family:'Cinzel', serif;
+    background:#3b0d0d;
+    color:#f5e6cc;
+    overflow-x:hidden;
 }
 
+/* GOLD SHIMMER */
+.gold{
+    background: linear-gradient(45deg,#c5a047,#fff1b0,#c5a047);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer{
+    to{background-position:200% center;}
+}
+
+/* SECTIONS */
 section{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+    padding:100px 20px;
+    text-align:center;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
 }
 
+section.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* HERO SECTION WITH YOUR IMAGE */
 .hero{
-background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-url('https://images.unsplash.com/photo-1520854221256-17451cc331bf');
-background-size:cover;
-background-position:center;
-color:white;
+    height:100vh;
+    background:
+    linear-gradient(rgba(59,13,13,.6),rgba(59,13,13,.6)),
+    url('hero.jpg');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
 
+/* MONOGRAM */
 .monogram{
-font-family:'Cinzel',serif;
-font-size:60px;
-letter-spacing:8px;
-animation:glow 3s infinite alternate;
+    border:2px solid #c5a047;
+    padding:20px 40px;
+    border-radius:50%;
+    font-size:40px;
+    margin-bottom:30px;
+    animation: glow 3s infinite alternate;
 }
 
 @keyframes glow{
-from{text-shadow:0 0 10px #C6AC8F;}
-to{text-shadow:0 0 25px #ffffff;}
+    from{box-shadow:0 0 10px #c5a047;}
+    to{box-shadow:0 0 30px #fff1b0;}
+}
+
+.hero h1{
+    font-family:'Great Vibes', cursive;
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero h2{
+    font-size:24px;
+    letter-spacing:2px;
 }
 
 .names{
-font-family:'Cinzel',serif;
-font-size:28px;
-margin-top:15px;
+    font-family:'Great Vibes', cursive;
+    font-size:65px;
+    margin:20px 0;
 }
 
+.divider{
+    width:150px;
+    height:2px;
+    background:#c5a047;
+    margin:30px auto;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 30px;
+    border:1px solid #c5a047;
+    color:#f5e6cc;
+    text-decoration:none;
+    margin-top:20px;
+    transition:.4s;
+}
+
+.btn:hover{
+    background:#c5a047;
+    color:#3b0d0d;
+    box-shadow:0 0 20px #fff1b0;
+}
+
+/* COUNTDOWN */
 .countdown{
-display:flex;
-gap:15px;
-margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:40px;
 }
 
-.box{
-background:var(--primary);
-color:white;
-padding:15px;
-border-radius:10px;
-min-width:70px;
-font-weight:bold;
+.countdown div{
+    border:1px solid #c5a047;
+    padding:20px;
+    width:100px;
 }
 
-button{
-padding:12px 25px;
-border:none;
-background:var(--primary);
-color:white;
-border-radius:25px;
-margin-top:20px;
-cursor:pointer;
-font-size:14px;
+.countdown span{
+    font-size:30px;
+    display:block;
 }
 
-button:hover{
-background:var(--accent);
-color:black;
+/* FOOTER */
+footer{
+    padding:40px;
+    background:#2a0909;
+    text-align:center;
 }
 
-.music-btn{
-position:fixed;
-bottom:20px;
-right:20px;
-background:var(--primary);
-color:white;
-border-radius:50%;
-width:55px;
-height:55px;
-display:flex;
-align-items:center;
-justify-content:center;
-cursor:pointer;
+/* RESPONSIVE */
+@media(max-width:768px){
+    .hero h1{font-size:38px;}
+    .names{font-size:42px;}
 }
 
 </style>
@@ -112,88 +159,82 @@ cursor:pointer;
 
 <body>
 
-<audio id="music" loop>
-<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_efbfa1f39a.mp3" type="audio/mp3">
-</audio>
-
-<div class="music-btn" onclick="toggleMusic()">♫</div>
-
-<!-- HERO -->
-<section class="hero">
-<div class="monogram">S & V</div>
-<div class="names">
-Sai Samyuktha <br> & <br> Vamshi Krishna
-</div>
-
-<div class="countdown">
-<div class="box" id="days">0D</div>
-<div class="box" id="hours">0H</div>
-<div class="box" id="minutes">0M</div>
-<div class="box" id="seconds">0S</div>
-</div>
+<section class="hero show">
+    <div class="monogram gold">S & V</div>
+    <h1 class="gold">Two Souls. One Sacred Journey.</h1>
+    <h2>With divine blessings, we invite you</h2>
 </section>
 
-<!-- WEDDING -->
 <section>
-<h2 style="font-family:Cinzel;">Wedding Ceremony</h2>
-<p style="margin-top:10px;">8 March 2026</p>
-<p>Karimnagar</p>
-<button onclick="window.open('https://maps.app.goo.gl/TUs1AmYJoai5cXpu8')">
-View Location
-</button>
+    <div class="divider"></div>
+    <div class="names gold">Sai Samyuktha</div>
+    <div class="gold">&</div>
+    <div class="names gold">Vamshi Krishna</div>
 </section>
 
-<!-- RECEPTION -->
-<section style="background:#EDE0D4;">
-<h2 style="font-family:Cinzel;">Reception</h2>
-<p style="margin-top:10px;">9 March 2026 • 5:00 PM</p>
-<p>Pothana Colony, Godavarikhani</p>
-<button onclick="window.open('https://maps.app.goo.gl/PJV4nuFHHRPsmwrP6')">
-View Location
-</button>
-</section>
-
-<!-- RSVP -->
 <section>
-<h2 style="font-family:Cinzel;">RSVP</h2>
-<p>Please confirm your presence</p>
-<button onclick="window.open('https://wa.me/91XXXXXXXXXX')">
-Confirm via WhatsApp
-</button>
+    <h2 class="gold">Wedding Ceremony</h2>
+    <div class="divider"></div>
+    <p>8th March</p>
+    <p>Karimnagar</p>
+    <a class="btn" href="https://maps.app.goo.gl/TUs1AmYJoai5cXpu8" target="_blank">View Location</a>
 </section>
+
+<section>
+    <h2 class="gold">Reception</h2>
+    <div class="divider"></div>
+    <p>9th March | 5:00 PM Evening</p>
+    <p>Pothana Colony, Godavarikhani</p>
+    <a class="btn" href="https://maps.app.goo.gl/PJV4nuFHHRPsmwrP6" target="_blank">View Location</a>
+</section>
+
+<section>
+    <h2 class="gold">Counting the Moments</h2>
+    <div class="divider"></div>
+    <div class="countdown">
+        <div><span id="days"></span>Days</div>
+        <div><span id="hours"></span>Hours</div>
+        <div><span id="minutes"></span>Minutes</div>
+        <div><span id="seconds"></span>Seconds</div>
+    </div>
+</section>
+
+<section>
+    <h2 class="gold">Blessings</h2>
+    <div class="divider"></div>
+    <p>“May your journey together be filled with love, laughter, and divine grace.”</p>
+</section>
+
+<footer>
+    With Love,<br>
+    Family of Sai Samyuktha & Vamshi Krishna
+</footer>
 
 <script>
 
-// Countdown
-var weddingDate = new Date("March 8, 2026 09:00:00").getTime();
+/* Fade animation */
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+    sections.forEach(sec=>{
+        const top=window.scrollY;
+        const offset=sec.offsetTop-400;
+        if(top>offset){sec.classList.add("show");}
+    });
+});
 
-setInterval(function(){
-var now = new Date().getTime();
-var distance = weddingDate - now;
-
-document.getElementById("days").innerHTML =
-Math.floor(distance/(1000*60*60*24)) + "D";
-
-document.getElementById("hours").innerHTML =
-Math.floor((distance%(1000*60*60*24))/(1000*60*60)) + "H";
-
-document.getElementById("minutes").innerHTML =
-Math.floor((distance%(1000*60*60))/(1000*60)) + "M";
-
-document.getElementById("seconds").innerHTML =
-Math.floor((distance%(1000*60))/1000) + "S";
-
+/* Countdown */
+const weddingDate=new Date("March 8, 2026 00:00:00").getTime();
+setInterval(()=>{
+    const now=new Date().getTime();
+    const gap=weddingDate-now;
+    const day=1000*60*60*24;
+    const hour=1000*60*60;
+    const minute=1000*60;
+    document.getElementById("days").innerText=Math.floor(gap/day);
+    document.getElementById("hours").innerText=Math.floor((gap%day)/hour);
+    document.getElementById("minutes").innerText=Math.floor((gap%hour)/minute);
+    document.getElementById("seconds").innerText=Math.floor((gap%minute)/1000);
 },1000);
-
-// Music toggle
-function toggleMusic(){
-var music=document.getElementById("music");
-if(music.paused){
-music.play();
-}else{
-music.pause();
-}
-}
 
 </script>
 
