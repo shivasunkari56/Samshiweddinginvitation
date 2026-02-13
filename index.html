@@ -56,7 +56,7 @@ align-items:center;
 overflow:hidden;
 }
 
-/* Background image layer */
+/* Background image zoom */
 .hero::before{
 content:"";
 position:absolute;
@@ -87,13 +87,13 @@ border-radius:50%;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-animation: glowPulse 5s infinite alternate;
+animation: glowPulse 6s infinite alternate;
 z-index:-1;
 }
 
 @keyframes glowPulse{
 from{opacity:0.5; transform:translate(-50%,-50%) scale(1);}
-to{opacity:0.9; transform:translate(-50%,-50%) scale(1.2);}
+to{opacity:0.9; transform:translate(-50%,-50%) scale(1.15);}
 }
 
 /* MONOGRAM */
@@ -159,24 +159,6 @@ font-weight:bold;
 margin-top:10px;
 }
 
-/* PETALS */
-.petal{
-position:fixed;
-top:-10px;
-width:20px;
-height:20px;
-background: radial-gradient(circle,#ffccdd 0%,#ff6699 70%);
-border-radius:50%;
-opacity:0.8;
-animation: fall linear infinite;
-z-index:1;
-}
-@keyframes fall{
-to{
-transform:translateY(110vh) rotate(360deg);
-}
-}
-
 /* FOOTER */
 footer{
 padding:40px;
@@ -198,7 +180,7 @@ font-size:18px;
 
 <body>
 
-<!-- Music -->
+<!-- Background Music -->
 <audio id="bgMusic" loop>
 <source src="bgm.mp3" type="audio/mpeg">
 </audio>
@@ -255,18 +237,7 @@ sec.classList.add("show");
 });
 });
 
-/* Petal Generator */
-function createPetal(){
-const petal=document.createElement("div");
-petal.classList.add("petal");
-petal.style.left=Math.random()*100+"vw";
-petal.style.animationDuration=(5+Math.random()*5)+"s";
-document.body.appendChild(petal);
-setTimeout(()=>{petal.remove();},10000);
-}
-setInterval(createPetal,400);
-
-/* Music autoplay workaround */
+/* Music autoplay fallback */
 window.addEventListener('load',()=>{
 const audio=document.getElementById("bgMusic");
 audio.play().catch(()=>{});
