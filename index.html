@@ -9,12 +9,7 @@
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Cinzel', serif;
@@ -31,7 +26,6 @@ background-size:200% auto;
 -webkit-text-fill-color:transparent;
 animation: shimmer 4s linear infinite;
 }
-
 @keyframes shimmer{
 to{background-position:200% center;}
 }
@@ -43,26 +37,63 @@ text-align:center;
 opacity:0;
 transform:translateY(40px);
 transition:1s ease;
+position:relative;
+z-index:2;
 }
-
 section.show{
 opacity:1;
 transform:translateY(0);
 }
 
-/* HERO */
+/* HERO WITH CINEMATIC ZOOM */
 .hero{
 height:100vh;
+position:relative;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+/* Background image layer */
+.hero::before{
+content:"";
+position:absolute;
+width:110%;
+height:110%;
 background:
 linear-gradient(rgba(59,13,13,.6),rgba(59,13,13,.6)),
 url('hero.jpg');
 background-size:cover;
 background-position:center;
-background-attachment:fixed;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+animation: slowZoom 20s infinite alternate ease-in-out;
+z-index:-2;
+}
+
+@keyframes slowZoom{
+from{transform:scale(1);}
+to{transform:scale(1.1);}
+}
+
+/* Mandala Glow */
+.hero::after{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+background: radial-gradient(circle,#c5a04755 0%,transparent 70%);
+border-radius:50%;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+animation: glowPulse 5s infinite alternate;
+z-index:-1;
+}
+
+@keyframes glowPulse{
+from{opacity:0.5; transform:translate(-50%,-50%) scale(1);}
+to{opacity:0.9; transform:translate(-50%,-50%) scale(1.2);}
 }
 
 /* MONOGRAM */
@@ -72,10 +103,9 @@ padding:20px 45px;
 border-radius:50%;
 font-size:45px;
 margin-bottom:30px;
-animation: glow 3s infinite alternate;
+animation: borderGlow 3s infinite alternate;
 }
-
-@keyframes glow{
+@keyframes borderGlow{
 from{box-shadow:0 0 10px #c5a047;}
 to{box-shadow:0 0 30px #fff1b0;}
 }
@@ -85,10 +115,8 @@ font-family:'Great Vibes', cursive;
 font-size:60px;
 margin-bottom:20px;
 }
-
 .hero h2{
-font-size:24px;
-letter-spacing:2px;
+font-size:22px;
 }
 
 /* NAMES */
@@ -97,11 +125,9 @@ font-family:'Great Vibes', cursive;
 font-size:75px;
 margin:20px 0;
 }
-
 .bride{
 font-family:'Great Vibes', cursive;
 font-size:55px;
-margin:10px 0;
 opacity:0.9;
 }
 
@@ -121,44 +147,34 @@ text-decoration:none;
 margin-top:20px;
 transition:.4s;
 }
-
 .btn:hover{
 background:#c5a047;
 color:#3b0d0d;
 box-shadow:0 0 20px #fff1b0;
 }
 
-/* BIG DATE */
 .big-date{
 font-size:40px;
-margin-top:15px;
 font-weight:bold;
+margin-top:10px;
 }
 
-/* RSVP STYLE */
-.rsvp-btn{
-padding:12px 40px;
-margin:10px;
-border:none;
-cursor:pointer;
-font-size:18px;
-border-radius:30px;
-transition:.4s;
+/* PETALS */
+.petal{
+position:fixed;
+top:-10px;
+width:20px;
+height:20px;
+background: radial-gradient(circle,#ffccdd 0%,#ff6699 70%);
+border-radius:50%;
+opacity:0.8;
+animation: fall linear infinite;
+z-index:1;
 }
-
-.yes{
-background:#c5a047;
-color:#3b0d0d;
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
 }
-
-.no{
-background:#ffffff20;
-color:#fff;
-border:1px solid #c5a047;
-}
-
-.rsvp-btn:hover{
-transform:scale(1.1);
 }
 
 /* FOOTER */
@@ -171,10 +187,10 @@ font-size:18px;
 
 /* MOBILE */
 @media(max-width:768px){
-.hero h1{font-size:38px;}
-.groom{font-size:48px;}
-.bride{font-size:36px;}
-.big-date{font-size:28px;}
+.hero h1{font-size:36px;}
+.groom{font-size:45px;}
+.bride{font-size:32px;}
+.big-date{font-size:26px;}
 }
 
 </style>
@@ -182,8 +198,8 @@ font-size:18px;
 
 <body>
 
-<!-- Background Music -->
-<audio id="bgMusic" autoplay loop>
+<!-- Music -->
+<audio id="bgMusic" loop>
 <source src="bgm.mp3" type="audio/mpeg">
 </audio>
 
@@ -199,7 +215,6 @@ font-size:18px;
 <div class="bride gold">Sai Samyuktha</div>
 </section>
 
-<!-- HALDI -->
 <section>
 <h2 class="gold">Haldi Ceremony</h2>
 <div class="divider"></div>
@@ -207,7 +222,6 @@ font-size:18px;
 <a class="btn" href="https://maps.app.goo.gl/iYfaqjJcwjwF8wHBA?g_st=ic" target="_blank">View Location</a>
 </section>
 
-<!-- WEDDING -->
 <section>
 <h2 class="gold">Wedding Ceremony</h2>
 <div class="divider"></div>
@@ -216,21 +230,12 @@ font-size:18px;
 <a class="btn" href="https://maps.app.goo.gl/TUs1AmYJoai5cXpu8" target="_blank">View Location</a>
 </section>
 
-<!-- RECEPTION -->
 <section>
 <h2 class="gold">Reception</h2>
 <div class="divider"></div>
 <p class="big-date">9th March 2026 | 5:00 PM</p>
 <p>Pothana Colony, Godavarikhani</p>
 <a class="btn" href="https://maps.app.goo.gl/PJV4nuFHHRPsmwrP6" target="_blank">View Location</a>
-</section>
-
-<!-- RSVP -->
-<section>
-<h2 class="gold">Are you coming?</h2>
-<div class="divider"></div>
-<button class="rsvp-btn yes">Yes 💛</button>
-<button class="rsvp-btn no">No 🤍</button>
 </section>
 
 <footer>
@@ -244,17 +249,32 @@ Sunkari Family
 const sections=document.querySelectorAll("section");
 window.addEventListener("scroll",()=>{
 sections.forEach(sec=>{
-const top=window.scrollY;
-const offset=sec.offsetTop-400;
-if(top>offset){sec.classList.add("show");}
+if(window.scrollY>sec.offsetTop-400){
+sec.classList.add("show");
+}
 });
 });
 
-/* Force autoplay (helps on some browsers) */
-window.addEventListener('load', function(){
+/* Petal Generator */
+function createPetal(){
+const petal=document.createElement("div");
+petal.classList.add("petal");
+petal.style.left=Math.random()*100+"vw";
+petal.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(petal);
+setTimeout(()=>{petal.remove();},10000);
+}
+setInterval(createPetal,400);
+
+/* Music autoplay workaround */
+window.addEventListener('load',()=>{
 const audio=document.getElementById("bgMusic");
 audio.play().catch(()=>{});
 });
+document.addEventListener('click',()=>{
+const audio=document.getElementById("bgMusic");
+if(audio.paused){audio.play();}
+},{once:true});
 
 </script>
 
